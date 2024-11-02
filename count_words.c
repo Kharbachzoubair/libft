@@ -6,7 +6,7 @@
 /*   By: zkharbac <zkharbac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 12:07:49 by zkharbac          #+#    #+#             */
-/*   Updated: 2024/10/31 12:53:19 by zkharbac         ###   ########.fr       */
+/*   Updated: 2024/11/02 11:40:54 by zkharbac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,7 @@ int ft_strlen(const char *str) {
     return i;
 }
 
-// Function to duplicate a string
-char *ft_strdup(const char *s1) {
-    int i = 0;
-    char *copy = malloc(ft_strlen(s1) + 1);
-    if (!copy) {
-        return NULL;
-    }
-    while (s1[i]) {
-        copy[i] = s1[i];
-        i++;
-    }
-    copy[i] = '\0';
-    return copy;
-}
+
 
 // Function to count the number of words in a string
 static int word_count(const char *str, char c) {
@@ -56,34 +43,28 @@ static int word_count(const char *str, char c) {
     return count;
 }
 
-// Function to fill a word from the original string
-char *fill_word(const char *str, int start, int end) {
-    int len = end - start;
-    char *s = malloc(len + 1);
-    if (!s) {
-        return NULL;
-    }
-    int i = 0;
-    while (i < len) {
-        s[i] = str[start + i];
-        i++;
-    }
-    s[len] = '\0'; // Null-terminate the string
-    return s;
-}
+// Function to create a substring from the original string
+char *ft_substr(const char *s, unsigned int start, size_t len) {
+    if (!s) return NULL;
 
-// Function to free an array of strings
-void free_words(char **words) {
-    int i = 0;
-    while (words[i]) {
-        free(words[i]);
-        i++;
+    // Adjust length if it exceeds the remaining string length
+    if (start >= ft_strlen(s)) return malloc(1); // Return an empty string
+
+    size_t actual_len = ft_strlen(s + start);
+    if (len > actual_len) len = actual_len;
+
+    char *substr = malloc(len + 1);
+    if (!substr) return NULL;
+
+    for (size_t i = 0; i < len; i++) {
+        substr[i] = s[start + i];
     }
-    free(words);
+    substr[len] = '\0'; // Null-terminate the substring
+    return substr;
 }
 
 // Main split function
-char **split(const char *s, char c) {
+char **ft_split(const char *s, char c) {
     if (!s) return NULL; // Handle null string input
 
     int total_words = word_count(s, c);
@@ -92,21 +73,15 @@ char **split(const char *s, char c) {
         return NULL;
     }
 
-    int i = 0, j = 0, start = -1;
+    int i = 0, j = 0, start = -1; // Initialize variables
     while (s[i]) {
-        if (s[i] == c) {
-            if (start != -1) {
-                res[j++] = fill_word(s, start, i); // Fill the word
-                start = -1; // Reset start for the next word
-            }
-        } else if (start == -1) {
-            start = i; // Mark the start of a word
+        if (s[i] != c && (i == 0 || s[i - 1] == c)) {
+            start = i; // Mark the start of the word
         }
-        i++;
-    }
-    // Handle the last word if it exists
-    if (start != -1) {
-        res[j++] = fill_word(s, start, i);
+        if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0')) {
+            res[j++] = ft_substr(s, start, i - start + 1); // Use ft_substr instead of fill_word
+        }
+        i++; // Always increment `i` to move through the string
     }
     res[j] = NULL; // Null-terminate the array of words
 
@@ -115,12 +90,13 @@ char **split(const char *s, char c) {
 
 // Test the split function
 int main() {
-    char **words = split("hello world 1337", ' ');
+    char **words = ft_split("hello world 1337", ' ');
     int i = 0;
     while (words[i]) {
         printf("Word %d: %s\n", i, words[i]);
+        free(words[i]); // Free each word after printing
         i++;
     }
-    free_words(words); // Free the allocated memory
+    free(words); // Free the array of words
     return 0;
 }
