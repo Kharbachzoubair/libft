@@ -6,12 +6,11 @@
 /*   By: zkharbac <zkharbac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 10:20:26 by zkharbac          #+#    #+#             */
-/*   Updated: 2024/10/31 13:49:47 by zkharbac         ###   ########.fr       */
+/*   Updated: 2024/11/16 10:16:26 by zkharbac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <limits.h>
+#include "libft.h"
 
 void	*ft_calloc(size_t count, size_t size)
 {
@@ -19,7 +18,9 @@ void	*ft_calloc(size_t count, size_t size)
 	char	*str;
 	size_t	i;
 
-	if (count == 0 || size == 0 || size > SIZE_MAX / count)
+	if (count == 0 || size == 0)
+		return (malloc(1));
+	if (count > (size_t) - 1 / size)
 		return (NULL);
 	total = count * size;
 	str = (char *)malloc(total);
@@ -33,27 +34,3 @@ void	*ft_calloc(size_t count, size_t size)
 	}
 	return (str);
 }
-/*int	main(void)
-{
-	size_t	count = 5;
-	size_t	size = sizeof(int);
-	int		*arr;
-	size_t	i;
-
-	arr = (int *)ft_calloc(count, size);
-	if (arr == NULL)
-	{
-		perror("Memory allocation failed");
-		return (1);
-	}
-	i = 0;
-	while (i < count)
-	{
-		arr[i] = i * 10;
-		printf("arr[%zu] = %d\n", i, arr[i]);
-		i++;
-	}
-	free(arr);
-	return (0);
-}
-*/

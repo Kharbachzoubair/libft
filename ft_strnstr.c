@@ -6,50 +6,32 @@
 /*   By: zkharbac <zkharbac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 14:49:50 by zkharbac          #+#    #+#             */
-/*   Updated: 2024/10/28 11:59:31 by zkharbac         ###   ########.fr       */
+/*   Updated: 2024/11/16 09:55:34 by zkharbac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdio.h>
+#include "libft.h"
 
-char *strnstr(const char *haystack, const char *needle, size_t len) {
-    // إذا كانت `needle` فارغة، نعيد `haystack`
-    if (*needle == '\0') {
-        return (char *)haystack;
-    }
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+{
+	size_t	i;
+	size_t	j;
 
-    size_t i = 0;
-    while (haystack[i] && i < len) {
-        // إذا وجدنا أول حرف في `needle` في `haystack`
-        if (haystack[i] == needle[0]) {
-            size_t j = 0;
-            // تحقق من بقية الحروف في `needle` تطابق `haystack`
-            while (needle[j] && haystack[i + j] == needle[j] && (i + j) < len) {
-                j++;
-            }
-            // إذا وصلنا إلى نهاية `needle`، وجدنا تطابقًا كاملًا
-            if (needle[j] == '\0') {
-                return (char *)&haystack[i];
-            }
-        }
-        i++;
-    }
-    // إذا لم نجد `needle`، نعيد NULL
-    return NULL;
-}
-
-int main() {
-    const char *haystack = "hello, world!";
-    const char *needle = "b ello ";
-    size_t len = 12;
-
-    char *result = strnstr(haystack, needle, len);
-    if (result) {
-        printf("Found: %s\n", result);
-    } else {
-        printf("Not found\n");
-    }
-
-    return 0;
+	i = 0;
+	if (!needle[0])
+		return ((char *)haystack);
+	while (len && haystack[i])
+	{
+		j = 0;
+		if (haystack[i] == needle[j])
+		{
+			while (j < len && haystack[i + j] == needle[j] && haystack[i + j])
+				j++;
+			if (!needle[j])
+				return ((char *)haystack + i);
+		}
+		i++;
+		len--;
+	}
+	return (NULL);
 }

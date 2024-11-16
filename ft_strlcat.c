@@ -6,45 +6,32 @@
 /*   By: zkharbac <zkharbac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 16:43:08 by zkharbac          #+#    #+#             */
-/*   Updated: 2024/10/26 11:59:33 by zkharbac         ###   ########.fr       */
+/*   Updated: 2024/11/15 17:44:14 by zkharbac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-#include <stddef.h>
-#include <stdio.h>
-int ft_strlen(const char *str)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-    int i;
-    i =0;
-    while (str[i])
-    {
-        i++;
-    }
-    return (i);
-}
-size_t strlcat(char *dst, const char *src, size_t Size){
-    size_t i = ft_strlen(dst);
-    size_t j = ft_strlen(src);
-    size_t len = i + ft_strlen(src);
-    if(Size ==0 || Size <= j)
-    {
-        return Size + i;
-    }
-    Size = Size -i - 1;
-    j=0;
-    while(src[j] && Size > j)
-    {
-        dst[i++]=src[j++];
-    }
-    dst[i] = '\0';
-    return len;
-}
-int main()
-{
-    char dest []="ghh";
-    char src []= "hdfh";
-    int a = strlcat(dest, src, 8);
-    printf("%d \n",a);
-    printf("%s",dest);
+	size_t	dst_len;
+	size_t	src_len;
+	size_t	i;
+	size_t	copy_len;
+
+	if (!dst && size == 0)
+		return (ft_strlen(src));
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
+	if (size <= dst_len)
+		return (size + src_len);
+	copy_len = size - dst_len - 1;
+	i = 0;
+	while (src[i] && i < copy_len)
+	{
+		dst[dst_len + i] = src[i];
+		i++;
+	}
+	dst[dst_len + i] = '\0';
+	return (dst_len + src_len);
 }
