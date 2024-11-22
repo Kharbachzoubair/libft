@@ -6,7 +6,7 @@
 /*   By: zkharbac <zkharbac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 14:49:50 by zkharbac          #+#    #+#             */
-/*   Updated: 2024/11/22 17:58:25 by zkharbac         ###   ########.fr       */
+/*   Updated: 2024/11/22 18:09:50 by zkharbac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,3 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	return (NULL);
 }
 
-int main ()
-{
-	printf("%s", ft_strnstr(NULL, NULL, 0));
-}
