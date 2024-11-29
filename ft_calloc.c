@@ -6,7 +6,7 @@
 /*   By: zkharbac <zkharbac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 10:20:26 by zkharbac          #+#    #+#             */
-/*   Updated: 2024/11/16 10:16:26 by zkharbac         ###   ########.fr       */
+/*   Updated: 2024/11/29 10:45:32 by zkharbac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,3 +34,4 @@ void	*ft_calloc(size_t count, size_t size)
 	}
 	return (str);
 }
+

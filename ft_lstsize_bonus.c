@@ -6,7 +6,7 @@
 /*   By: zkharbac <zkharbac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 16:41:44 by zkharbac          #+#    #+#             */
-/*   Updated: 2024/11/22 18:03:10 by zkharbac         ###   ########.fr       */
+/*   Updated: 2024/11/29 10:44:56 by zkharbac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,3 +24,4 @@ int	ft_lstsize(t_list *lst)
 	}
 	return (count);
 }
+

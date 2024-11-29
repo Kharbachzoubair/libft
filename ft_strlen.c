@@ -6,7 +6,7 @@
 /*   By: zkharbac <zkharbac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 12:09:13 by zkharbac          #+#    #+#             */
-/*   Updated: 2024/11/15 17:43:01 by zkharbac         ###   ########.fr       */
+/*   Updated: 2024/11/29 10:44:12 by zkharbac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,3 +23,4 @@ size_t	ft_strlen(const char *str)
 	}
 	return (i);
 }
+

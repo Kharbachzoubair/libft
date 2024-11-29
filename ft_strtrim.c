@@ -6,7 +6,7 @@
 /*   By: zkharbac <zkharbac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 15:15:50 by zkharbac          #+#    #+#             */
-/*   Updated: 2024/11/16 09:38:00 by zkharbac         ###   ########.fr       */
+/*   Updated: 2024/11/29 10:44:00 by zkharbac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,4 @@ char	*ft_strtrim(const char *s1, const char *set)
 		end--;
 	return (ft_substr(s1, start, end - start));
 }
+

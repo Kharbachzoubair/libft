@@ -6,7 +6,7 @@
 /*   By: zkharbac <zkharbac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:55:03 by zkharbac          #+#    #+#             */
-/*   Updated: 2024/11/29 10:39:12 by zkharbac         ###   ########.fr       */
+/*   Updated: 2024/11/29 10:45:47 by zkharbac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,3 +40,4 @@ int	ft_atoi(const char *str)
 	}
 	return (result * sign);
 }
+

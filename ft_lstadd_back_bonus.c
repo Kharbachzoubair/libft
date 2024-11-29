@@ -6,7 +6,7 @@
 /*   By: zkharbac <zkharbac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 18:05:33 by zkharbac          #+#    #+#             */
-/*   Updated: 2024/11/22 18:01:16 by zkharbac         ###   ########.fr       */
+/*   Updated: 2024/11/29 10:45:10 by zkharbac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,3 +26,4 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	}
 	last->next = new;
 }
+

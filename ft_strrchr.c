@@ -6,7 +6,7 @@
 /*   By: zkharbac <zkharbac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 15:08:14 by zkharbac          #+#    #+#             */
-/*   Updated: 2024/11/15 17:44:31 by zkharbac         ###   ########.fr       */
+/*   Updated: 2024/11/29 10:44:02 by zkharbac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,3 +29,4 @@ char	*ft_strrchr(const char *s, int c)
 		return ((char *)&s[i]);
 	return (last_occurrence);
 }
+

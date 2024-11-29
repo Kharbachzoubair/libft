@@ -6,7 +6,7 @@
 /*   By: zkharbac <zkharbac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 18:00:32 by zkharbac          #+#    #+#             */
-/*   Updated: 2024/11/15 17:45:01 by zkharbac         ###   ########.fr       */
+/*   Updated: 2024/11/29 10:44:31 by zkharbac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,3 +91,4 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	return (fill_words(split, s, c, word_count));
 }
+

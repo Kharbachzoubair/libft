@@ -6,7 +6,7 @@
 /*   By: zkharbac <zkharbac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 12:56:06 by zkharbac          #+#    #+#             */
-/*   Updated: 2024/11/16 09:55:17 by zkharbac         ###   ########.fr       */
+/*   Updated: 2024/11/29 10:44:18 by zkharbac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,3 +35,4 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	res[len] = '\0';
 	return (res);
 }
+
